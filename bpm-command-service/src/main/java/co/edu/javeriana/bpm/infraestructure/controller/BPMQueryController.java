@@ -4,6 +4,7 @@ import co.edu.javeriana.bpm.application.BPMServices;
 import co.edu.javeriana.bpm.domain.Status;
 import co.edu.javeriana.bpm.dtos.Request;
 import co.edu.javeriana.bpm.dtos.Response;
+import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +20,19 @@ import java.util.concurrent.ExecutionException;
 @RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
+@Api(value="Controlador que se encargará de los inicios de instancia del proceso de gestión de ordenes de TouresBalon.")
 public class BPMQueryController {
-
     private final BPMServices service;
 
     @PostMapping(value = "/instance")
-    public ResponseEntity<CompletableFuture<Response>> all(@RequestBody(required = true) Request data) throws ExecutionException, InterruptedException, UnknownHostException {
+    @ApiOperation(value = "Esta operación se encargaráa de invocar al punto de inicio del proceso de gestión de ordenes del BPM.", response = Response.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "La instancia fue lanzada satisfactoriamente"),
+            @ApiResponse(code = 404, message = "Error no se pudo lanzar una instancia de gestión de ordenes"),
+            @ApiResponse(code = 500, message = "Error interno en el servidor, contacte y reporte con el administrador")
+    })
+    public ResponseEntity<CompletableFuture<Response>> all(@ApiParam("Información requerida para un inicio de instancia de proceso.")
+                                                           @RequestBody(required = true) Request data) throws ExecutionException, InterruptedException, UnknownHostException {
 
         if (data == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
