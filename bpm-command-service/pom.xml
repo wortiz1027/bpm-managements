@@ -14,12 +14,82 @@
 	<name>bpm-command-service</name>
 	<description>Servicio que inicia instancia en el bpm ibm</description>
 
+	<!--
+            Developers Teams :P
+        -->
+	<developers>
+		<developer>
+			<id>bsuarez</id>
+			<name>Brian Camilo Suarez Botia</name>
+			<email>bsuarez@javeriana.edu.co</email>
+			<url>https://www.javeriana.edu.co/</url>
+			<organization>Pontificia Universidad Javeriana</organization>
+			<organizationUrl>https://www.javeriana.edu.co/</organizationUrl>
+			<roles>
+				<role>Desarrollador Senior</role>
+			</roles>
+			<timezone>America/Bogota</timezone>
+			<properties>
+				<picture>http://www.oorsprong.org/WebSamples.CountryInfo/Images/Colombia.jpg</picture>
+			</properties>
+		</developer>
+		<developer>
+			<id>efranco</id>
+			<name>Eduardo Franco Rivera</name>
+			<email>efranco@javeriana.edu.co</email>
+			<url>https://www.javeriana.edu.co/</url>
+			<organization>Pontificia Universidad Javeriana</organization>
+			<organizationUrl>https://www.javeriana.edu.co/</organizationUrl>
+			<roles>
+				<role>Desarrollador Senior</role>
+			</roles>
+			<timezone>America/Bogota</timezone>
+			<properties>
+				<picture>http://www.oorsprong.org/WebSamples.CountryInfo/Images/Colombia.jpg</picture>
+			</properties>
+		</developer>
+		<developer>
+			<id>jcelemin</id>
+			<name>John Edward Celemin Florez</name>
+			<email>jcelemin@javeriana.edu.co</email>
+			<url>https://www.javeriana.edu.co/</url>
+			<organization>Pontificia Universidad Javeriana</organization>
+			<organizationUrl>https://www.javeriana.edu.co/</organizationUrl>
+			<roles>
+				<role>Desarrollador Senior</role>
+			</roles>
+			<timezone>America/Bogota</timezone>
+			<properties>
+				<picture>http://www.oorsprong.org/WebSamples.CountryInfo/Images/Colombia.jpg</picture>
+			</properties>
+		</developer>
+		<developer>
+			<id>wortiz</id>
+			<name>Wilman Ortiz</name>
+			<email>wiortiz@javeriana.edu.co</email>
+			<url>https://www.javeriana.edu.co/</url>
+			<organization>Pontificia Universidad Javeriana</organization>
+			<organizationUrl>https://www.javeriana.edu.co/</organizationUrl>
+			<roles>
+				<role>Desarrollador Senior</role>
+			</roles>
+			<timezone>America/Bogota</timezone>
+			<properties>
+				<picture>http://www.oorsprong.org/WebSamples.CountryInfo/Images/Colombia.jpg</picture>
+			</properties>
+		</developer>
+	</developers>
+
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -37,6 +107,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
@@ -130,15 +207,14 @@
 				<configuration>
 					<schemaLanguage>WSDL</schemaLanguage>
 					<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-					<generatePackage>co.edu.javeriana.bpm.infraestructure.wsdl.model</generatePackage>
+					<generatePackage>co.edu.javeriana.bpm.infraestructure.wsdl.model.cancelar</generatePackage>
 					<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
 					<schemaIncludes>
-						<include>iniciarProceso.wsdl</include>
+						<include>cancelarProceso.wsdl</include>
 					</schemaIncludes>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>

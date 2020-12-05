@@ -1,6 +1,8 @@
 package co.edu.javeriana.bpm.infraestructure.client;
 
 import co.edu.javeriana.bpm.infraestructure.wsdl.model.IniciarPaqueteTuristico;
+import co.edu.javeriana.bpm.infraestructure.wsdl.model.cancelar.CancelarProceso;
+import co.edu.javeriana.bpm.infraestructure.wsdl.model.cancelar.CancelarProcesoResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
@@ -17,4 +19,5 @@ public class BPMWsClient extends WebServiceGatewaySupport {
 
         return response;
     }
+
 }
