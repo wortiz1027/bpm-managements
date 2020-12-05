@@ -14,7 +14,7 @@ services:
     hostname: bpm-command-services
     restart: always
     ports:
-      - 8082:8082
+      - 8099:8089
       - 6099:6099
     environment:
       - CONFIG_SERVER=http://server-configuration-services:9090
