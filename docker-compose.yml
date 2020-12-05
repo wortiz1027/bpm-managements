@@ -9,12 +9,19 @@
 version: '3.7'
 services:
   bpm-command-services:
-    image: bpm-command-services:latest
+    image: wortiz1027/bpm-command-services:latest
     container_name: bpm-command-services
     hostname: bpm-command-services
     restart: always
     ports:
       - 8082:8082
+      - 6099:6099
+    environment:
+      - CONFIG_SERVER=http://server-configuration-services:9090
+      - EUREKA_SERVER=http://server-discovery-services:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - BPM_HOST=10.100.136.172
+      - BPM_PORT=9080
     networks:
       - ntw_backend
 networks:
